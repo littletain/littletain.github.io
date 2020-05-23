@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Tain&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Tain&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="Tain&#39;s blog">
+<meta property="og:locale" content="zh">
+<meta property="article:author" content="Tain">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Tain&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -46,7 +46,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Tain</a></h1>
 		</hgroup>
 		
 
@@ -104,7 +104,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Tain</h1>
 			</hgroup>
 			
 			
@@ -152,6 +152,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Servlet使用概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/23/Servlet%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0/">Servlet使用概述</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/Servlet%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0/" class="archive-article-date">
+  	<time datetime="2020-05-23T02:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="看此文章前需要的前置知识"><a href="#看此文章前需要的前置知识" class="headerlink" title="看此文章前需要的前置知识"></a>看此文章前需要的前置知识</h2><ul>
+<li>前端基础知识（html、css、JavaScript）</li>
+<li>在本地搭建起了一个tomcat服务器，并运行了一个网页</li>
+<li>使用Ider或Eclipse等IDE集成了tomcat服务器</li>
+</ul>
+<p>本博客主要目的是，快速建立起Servlet的整体认知和感性认知，会忽略部分技术实现细节</p>
+<hr>
+<h2 id="Servlet概述"><a href="#Servlet概述" class="headerlink" title="Servlet概述"></a>Servlet概述</h2><p>Servlet是一种基于HTTP请求响应模型的服务器端程序，当页面触发请求时，比如某个前端事件（点击、刷新等），会调用对应的Servlet程序。举个例子：<br>启动好tomcat服务器后，打开此网页：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>User Login<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        Hello,html!</span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/web-servlet/ServletLogin"</span> <span class="attr">method</span>=<span class="string">"POST"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">placeholder</span>=<span class="string">"请输入用户名"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个表单提交的的地址（action）就是某个Servlet程序。Servlet程序接收到浏览器的请求（request）后，根据业务需求给出响应的响应（response），比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    doPost(request,response);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    <span class="comment">//beanutils的jar包，用于简化封装的过程</span></span><br><span class="line">    Map&lt;String,String[]&gt; map = request.getParameterMap();</span><br><span class="line">    User loginUser = <span class="keyword">new</span> User();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        BeanUtils.populate(loginUser, map);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IllegalAccessException | InvocationTargetException e) &#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    User user = <span class="keyword">new</span> UserDao().login(loginUser);</span><br><span class="line">    <span class="keyword">if</span> (user == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">//System.out.println("用户不存在");</span></span><br><span class="line">        request.getRequestDispatcher(<span class="string">"/FailServlet"</span>).forward(request, response);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//System.out.println(user);</span></span><br><span class="line">        request.setAttribute(<span class="string">"user"</span>, user);</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"/SuccessServlet"</span>).forward(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Servlet是java程序的一个接口，需要实现响应的方法，并按格式要求传递参数，此处不必关注实现功能的细节，可以看出整个HttpServlet的主体结构是doGet和doPost，这是根据实际工程简化的结果，Servlet（父接口）的完整结构应该是init，service，destroy，代表这个服务程序被创建时需要做init中的事，加载时（比如被表单调用）执行service中的内容，释放资源前执行destroy中的内容。创建和加载的区别是创建只有第一次被调用时发生，而加载是每次调用都会发生，比如表单每次提交都会重新加载，而不会重新创建。</li>
+<li>HttpServlet是Servlet的一个子接口，因为很多情况下init和destroy部分不需要做什么操作，所以把关注点放在service部分，而service又会根据服务请求方法的不同可能有不同的响应形式，常见的请求方式是Get和Post</li>
+<li>doGet和doPost的方法的传参为request和response，即代表从浏览器接受到的请求为request，完成业务后，可以使用response这个实例返回结果，与用户（浏览器的使用者）进行交互。这两个参数在<a href="https://www.baidu.com" target="_blank" rel="noopener">链接待定</a>中进行详解</li>
+</ul>
+<hr>
+<h2 id="知识补充"><a href="#知识补充" class="headerlink" title="知识补充"></a>知识补充</h2><h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><p>请求和响应格式</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/23/Servlet%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,7 +254,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、环境配置（外部配置）"><a href="#一、环境配置（外部配置）" class="headerlink" title="一、环境配置（外部配置）"></a>一、环境配置（外部配置）</h1><ol>
+        <h2 id="一、环境配置（外部配置）"><a href="#一、环境配置（外部配置）" class="headerlink" title="一、环境配置（外部配置）"></a>一、环境配置（外部配置）</h2><ol>
 <li>安装node.js（和npm包管理器），直接官网下载安装即可</li>
 <li>设置环境变量，成功后可以在cmd通过node -v 和 npm -v 查看版本</li>
 <li>安装cnpm（npm的国内镜像版）<br> <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
@@ -181,26 +263,25 @@
 <li>在打算存储本地内容的路径下使用hexo init命令，如果没git这步会卡住</li>
 </ol>
 <hr>
-<h1 id="二、使用规则（内部配置）"><a href="#二、使用规则（内部配置）" class="headerlink" title="二、使用规则（内部配置）"></a>二、使用规则（内部配置）</h1><ol>
-<li>环境配置完成后，本地文件夹内就能看到对应的内容（我的是d:/hexo）<br>其中_config.yml这个配置文件很重要，需要在其中改deploy设置，格式为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: &#39;git&#39;</span><br><span class="line">    repository: git@github.com:littletain&#x2F;littletain.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-注意不要多些和少写空格，路径要完整<br>如果需要改主题theme，也是在这个文件里改</li>
-<li>使用git bash或cmd安装插件：<br> <code>npm install hexo-deployer-git --save</code></li>
-<li>确保github中的设置正确，比如路径格式为 用户名.github.io，即外网域名，且正确配置了SSH</li>
-<li>此后就可以在git中使用各种hexo的命令了</li>
+<h2 id="二、使用规则（内部配置）"><a href="#二、使用规则（内部配置）" class="headerlink" title="二、使用规则（内部配置）"></a>二、使用规则（内部配置）</h2><ol>
+<li>环境配置完成后，本地文件夹内就能看到对应的内容（我的是d:/hexo）<br>其中_config.yml这个配置文件很重要，需要在其中改deploy设置，格式为：</li>
 </ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">'git'</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">git@github.com:littletain/littletain.github.io.git</span></span><br><span class="line"><span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>注意不要多些和少写空格，路径要完整，如果需要改主题theme，也是在这个文件里改<br>2. 使用git bash或cmd安装插件：<br>    <code>npm install hexo-deployer-git --save</code><br>3. 确保github中的设置正确，比如路径格式为 用户名.github.io，即外网域名，且正确配置了SSH<br>4. 此后就可以在git中使用各种hexo的命令了</p>
 <hr>
-<h1 id="三、常用命令（可以在cmd中运行，建议在git-bash中运行）"><a href="#三、常用命令（可以在cmd中运行，建议在git-bash中运行）" class="headerlink" title="三、常用命令（可以在cmd中运行，建议在git bash中运行）"></a>三、常用命令（可以在cmd中运行，建议在git bash中运行）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+<h2 id="三、常用命令（可以在cmd中运行，建议在git-bash中运行）"><a href="#三、常用命令（可以在cmd中运行，建议在git-bash中运行）" class="headerlink" title="三、常用命令（可以在cmd中运行，建议在git bash中运行）"></a>三、常用命令（可以在cmd中运行，建议在git bash中运行）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy <span class="comment">#部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span></span><br><span class="line">hexo version  <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
 
 <p>缩写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n &#x3D;&#x3D; hexo new</span><br><span class="line">hexo g &#x3D;&#x3D; hexo generate</span><br><span class="line">hexo s &#x3D;&#x3D; hexo server</span><br><span class="line">hexo d &#x3D;&#x3D; hexo deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>组合命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g #生成并本地预览</span><br><span class="line">hexo d -g #生成并上传</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h1><p>内部外部均配置好后，利用命令即可使用，new一个新的日志，然后按照markdown语法格式编辑即可<br>一些使用细节，和主题中的细节配置（如微信链接）还没仔细研究清楚</p>
+<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>内部外部均配置好后，利用命令即可使用，new一个新的日志，然后按照markdown语法格式编辑即可<br>一些使用细节，和主题中的细节配置（如微信链接）还没仔细研究清楚</p>
 <hr>
-<h1 id="五、参考内容"><a href="#五、参考内容" class="headerlink" title="五、参考内容"></a>五、参考内容</h1><p><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa" target="_blank">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa</a><br><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank">https://www.bilibili.com/video/BV1Yb411a7ty</a></p>
+<h2 id="五、参考内容"><a href="#五、参考内容" class="headerlink" title="五、参考内容"></a>五、参考内容</h2><p><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa" target="_blank" rel="noopener">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa</a><br><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Yb411a7ty</a></p>
 
       
 
@@ -394,7 +475,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 John Doe
+    		&copy; 2020 Tain
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

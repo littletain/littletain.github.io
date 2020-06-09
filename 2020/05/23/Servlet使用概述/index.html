@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Servlet使用概述 | Tain&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="看此文章前需要的前置知识 前端基础知识（html、css、JavaScript） 在本地搭建起了一个tomcat服务器，并运行了一个网页 使用Ider或Eclipse等IDE集成了tomcat服务器  本博客主要目的是，快速建立起Servlet的整体认知和感性认知，会忽略部分技术实现细节  Servlet概述Servlet是一种基于HTTP请求响应模型的服务器端程序，当页面触发请求时，比如某个前端">
+  <meta name="description" content="看此文章前需要的前置知识 前端基础知识（html、css、JavaScript） 在本地搭建起了一个tomcat服务器，并运行了一个网页 使用Ider或Eclipse等IDE集成了tomcat服务器  本博客主要目的是，快速建立起Servlet的整体认知和感性认知，会忽略部分技术实现细节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet使用概述">
 <meta property="og:url" content="http://yoursite.com/2020/05/23/Servlet%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Tain&#39;s blog">
-<meta property="og:description" content="看此文章前需要的前置知识 前端基础知识（html、css、JavaScript） 在本地搭建起了一个tomcat服务器，并运行了一个网页 使用Ider或Eclipse等IDE集成了tomcat服务器  本博客主要目的是，快速建立起Servlet的整体认知和感性认知，会忽略部分技术实现细节  Servlet概述Servlet是一种基于HTTP请求响应模型的服务器端程序，当页面触发请求时，比如某个前端">
+<meta property="og:description" content="看此文章前需要的前置知识 前端基础知识（html、css、JavaScript） 在本地搭建起了一个tomcat服务器，并运行了一个网页 使用Ider或Eclipse等IDE集成了tomcat服务器  本博客主要目的是，快速建立起Servlet的整体认知和感性认知，会忽略部分技术实现细节">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-23T02:58:30.000Z">
-<meta property="article:modified_time" content="2020-05-26T03:10:37.655Z">
+<meta property="article:modified_time" content="2020-06-09T02:56:21.305Z">
 <meta property="article:author" content="Tain">
-<meta property="article:tag" content="Servlet, java">
+<meta property="article:tag" content="Servlet">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Tain&#39;s blog" type="application/atom+xml">
@@ -48,7 +49,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/img/Luffy.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Tain</a></h1>
@@ -61,6 +62,8 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+	        
+				<li><a href="/tags/java/">java</a></li>
 	        
 			</ul>
 		</nav>
@@ -84,11 +87,9 @@
 				
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="mailto:littletain@126.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -106,13 +107,15 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/img/Luffy.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Tain</h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -125,22 +128,22 @@
 					
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="mailto:littletain@126.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/java/">java</a></li>
 		        
 				</ul>
 			</nav>
@@ -182,6 +185,8 @@
 </ul>
 <p>本博客主要目的是，快速建立起Servlet的整体认知和感性认知，会忽略部分技术实现细节</p>
 <hr>
+<a id="more"></a>
+
 <h2 id="Servlet概述"><a href="#Servlet概述" class="headerlink" title="Servlet概述"></a>Servlet概述</h2><p>Servlet是一种基于HTTP请求响应模型的服务器端程序，当页面触发请求时，比如某个前端事件（点击、刷新等），会调用对应的Servlet程序。举个例子：<br>启动好tomcat服务器后，打开此网页：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>User Login<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        Hello,html!</span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/web-servlet/ServletLogin"</span> <span class="attr">method</span>=<span class="string">"POST"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">placeholder</span>=<span class="string">"请输入用户名"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -239,13 +244,28 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Servlet, java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -308,6 +328,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/06/04/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          个人简历
+        
+      </div>
+    </a>
   
   
     <a href="/2020/05/23/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -437,7 +466,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Servlet, java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>

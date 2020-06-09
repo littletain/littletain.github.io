@@ -8,12 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Tain&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Something about code and life.">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Tain&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Tain&#39;s blog">
+<meta property="og:description" content="Something about code and life.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Tain">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Tain&#39;s blog" type="application/atom+xml">
@@ -55,9 +58,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/categories">分类</a></li>
 	        
-				<li><a href="/tags/java/">java</a></li>
+				<li><a href="/tags">标签</a></li>
 	        
 			</ul>
 		</nav>
@@ -135,9 +138,9 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/java/">java</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags">标签</a></li>
 		        
 				</ul>
 			</nav>
@@ -153,6 +156,125 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-git的环境搭建与使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/09/git%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/">git的环境搭建与使用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/09/git%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-06-09T10:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>此博客主要目的是理解概念，概括最主要的功能，步骤简略，操作性一般，可以对照参考链接进行细致的上手操作学习  </p>
+<h3 id="git简介"><a href="#git简介" class="headerlink" title="git简介"></a>git简介</h3><ul>
+<li>Git是目前世界上最先进的分布式版本控制系统  </li>
+<li>在开发复杂或长期的项目时，维护和更新不同版本  </li>
+<li>团队协作，或是在不同设备上内容的同步（远程仓库）</li>
+</ul>
+<h3 id="下载并安装git（以Windows为例）"><a href="#下载并安装git（以Windows为例）" class="headerlink" title="下载并安装git（以Windows为例）"></a>下载并安装git（以Windows为例）</h3><ul>
+<li>下载链接：<a href="https://git-scm.com/" target="_blank" rel="noopener">git官网</a>  </li>
+<li>安装过程一路下一步即可  </li>
+<li>安装成功后右击鼠标，菜单中可以看到“Git GUI Here”和“Git Bash Here”，后续操作均在Git Bash界面  </li>
+</ul>
+<div align="center"><img src="/.com//right_click.jpg"></div>
+
+<h3 id="初步使用"><a href="#初步使用" class="headerlink" title="初步使用"></a>初步使用</h3><ul>
+<li>在电脑某个目录下右击鼠标启动Git bash，输入命令：<code>git init</code>,即可看到一个隐藏文件夹.git,这时bash内命令行会看到“(master)”字样，就代表当前目录是一个“git仓库目录”  </li>
+</ul>
+<div align="center"><img src="/.com//bash.jpg"></div>  
+
+<ul>
+<li>在该目录下创建一个readme.txt  </li>
+<li>然后使用命令<code>git add readme.txt</code>来将该文件添加到提交列表，此时可以使用<code>git status</code>查看git状态  </li>
+<li>使用命令<code>git commit -m &quot;提交时候的说明信息&quot;</code>来提交内容，提及后依然可以使用<code>git status</code>查看状态，根据英文描述理解即可  </li>
+<li>每次创建新文档或是更改文档内容后都可以再次添加和提交，来更新git仓库的内容</li>
+</ul>
+<p>以上环节就是前期准备以及最常用命令的使用，体验本地仓库如何使用  </p>
+<h2 id="git中必须理解的概念"><a href="#git中必须理解的概念" class="headerlink" title="git中必须理解的概念"></a>git中必须理解的概念</h2><h3 id="工作区-暂存区-提交区"><a href="#工作区-暂存区-提交区" class="headerlink" title="工作区/暂存区/提交区"></a>工作区/暂存区/提交区</h3><p>工作区即当前正在操作的区域，直接打开文件夹，看到的这些内容，都是在工作区；<br>暂存区是指工作区中的内容在add命令后，未提交之前，暂时存放的地方，每次提交只会把暂存区的内容提交上去，如果添加后不提交，继续修改工作区的内容，此时提交后的结果，并不是把工作区现在的状态同步到提交区，而是把已经添加到暂存区的内容提交上去；<br>提交区（网上没找到官方名称，我自己起的名字）就是存储提交命令commit之后的内容，每次提交就相当于生成了一个新的版本。</p>
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>git版本管理的目的就是在进行了错误更新后，回退到一个旧的合适的位置，每次执行了commit操作之后，git都会生成一串经过哈希后的代码，用于记录该次提交后，仓库中存储的内容的状态；<br>在实际工作中，只靠人脑无法记忆每次更新的内容，所以需要采用<code>git log</code>指令来查看每次更新都做了什么，以及对应的版本号。（实际显示的为该次提交的哈希值，版本号需要手动额外设置）<br>在查询到版本号之后通过<code>git reset --hard 哈希值</code>来让本地文件恢复到想要的版本，即回到过去；<br>如果回到过去之后后悔了，此时用<code>git log</code>是看不到“将来”的版本号的，需要采用另一个命令<code>git reflog</code>来查看过去的操作，找到“将来”对应的哈希值，跳转过去。</p>
+<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p>除了版本管理，git的另一大功能就是团队协作，让一个团队共同开发某个项目，所以需要在建立一个远程仓库，并让其和本地仓库连接起来，让团队中的每个人都可以访问以及维护该项目；<br>远程仓库可以是一台独立的服务器，常用的比如github，以下以github为例简介连接本地仓库和远程仓库的方法：<br>方法一：在github上新建一个仓库（repository）使用<code>git remote add origin git@github.com:你的github用户名/你在github上新建的项目.git</code>来连接此仓库；<br>方法二：在github上新建仓库后，使用<code>git clone 仓库url</code>的方式；<br>两种方法需要进行一些个人信息设置，以及SSH设置。<br>然后使用<code>git push</code>和<code>git pull</code>命令让本地和远程的内容同步</p>
+<h3 id="分支（branch）"><a href="#分支（branch）" class="headerlink" title="分支（branch）"></a>分支（branch）</h3><p>一个仓库的版本，不是简单的一条线，用来时空穿梭，而是多条分支，把每次提交视作一个节点的话，分支是一个可以在任何节点产生的，也可以在任何节点消失；<br>前面提到过的“master”就是一个分支，该分支是项目的主要分支，是git默认自动创建好的，通常项目管理的时候，把主要的进度放在主分支上，开发者单独开一个分支，在另外的分支上完成开发，等确定该部分功能稳定的时候，再合并到主分支。<br>分支的一些操作比如，通过<code>git branch</code>命令查看分支，通过<code>git switch 分支名</code>命令切换当前工作所在分支，通过<code>git switch -c 分支名</code>创建一个分支并切换过去。  </p>
+<h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#分支相关指令</span></span><br><span class="line">git branch <span class="comment">#查看</span></span><br><span class="line">git branch 分支名 <span class="comment">#创建</span></span><br><span class="line">git checkout 分支名 <span class="comment">#切换</span></span><br><span class="line">git checkout -b 分支名 <span class="comment">#创建并切换</span></span><br><span class="line">git switch 分支名 <span class="comment">#创建，switch和checkout无区别，仅为语法更新</span></span><br><span class="line">git switch -c 分支名 <span class="comment">#创建并切换</span></span><br><span class="line">git branch -d 分支名 <span class="comment">#删除，不能在当前分支下删除自己</span></span><br><span class="line">git merge 被合并的分支名 <span class="comment">#合并</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交/同步指令</span></span><br><span class="line"><span class="comment">#线上：</span></span><br><span class="line">git push <span class="comment">#从本地上传到服务器</span></span><br><span class="line">git pull <span class="comment">#从服务器拉下来</span></span><br><span class="line">git <span class="built_in">clone</span> url路径 <span class="comment">#使用HTTPS或者ssh方式把线上项目克隆下来，推荐使用ssh方式（需要设置密匙）</span></span><br><span class="line"><span class="comment">#本地：</span></span><br><span class="line">git add 文件名1 文件名2 ... <span class="comment">#将文件放入缓冲区</span></span><br><span class="line">git add . <span class="comment">#添加该目录下全部文件到缓冲区</span></span><br><span class="line">git init <span class="comment">#将该路径初始化为一个git仓库（会生成一个隐藏的.git文件夹）</span></span><br><span class="line">git commit -m <span class="string">"注释内容"</span> <span class="comment">#将缓冲区内文件提交到本地仓库</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#git生成SSH公匙</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh <span class="comment">#检查本机已存在的ssh密匙（提示No such file or directory说明是第一次使用git）</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址"</span></span><br><span class="line"><span class="comment">#然后按照默认三次回车即可，在电脑的user目录下找到.ssh\id_rsa.pub，粘贴并设置到github</span></span><br><span class="line">ssh -T git@github.com <span class="comment">#邮箱地址不用改</span></span><br><span class="line"><span class="comment">#测试ssh是否配置成功，若看到Hi xxx!You've successfully...（后续内容省略）即为成功</span></span><br><span class="line">git config --global user.name <span class="string">"github用户名"</span> <span class="comment">#配置github信息，和远程仓库互动时使用</span></span><br><span class="line">git config --global user.name <span class="string">"github注册邮箱"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#多人协作：</span></span><br><span class="line">git remote add origin git@server-name:path/repo-name.git <span class="comment">#关联远程库，比如对于我的github就是：</span></span><br><span class="line">git remote add origin git@github.com:littletain/gitlearn.git </span><br><span class="line">git push -u origin master <span class="comment">#推送本地内容到远程库，首次加-u这个参数，用于把本地master分支和远程master分支连起来</span></span><br><span class="line">git remote -v <span class="comment">#查看远程库信息</span></span><br><span class="line">git push origin master <span class="comment">#把master分支提交到远程 git push &lt;远程库名&gt; &lt;分支名&gt;</span></span><br><span class="line">git checkout -b branch-name origin/branch-name <span class="comment">#从本地创建分支并与远程关联</span></span><br><span class="line">git branch --<span class="built_in">set</span>-upstream branch-name origin/branch-name <span class="comment">#设置关联</span></span><br><span class="line">git pull <span class="comment">#从远程抓取分支，如果有冲突需要先处理冲突</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰的git教程</a>：包含详细的原理分析以及操作教程，对本地仓库三个区域和分支的讲解形象准确</p>
+
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具-环境//" class="article-tag-list-link color4">工具 && 环境</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/09/git%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Servlet使用概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -174,17 +296,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="看此文章前需要的前置知识"><a href="#看此文章前需要的前置知识" class="headerlink" title="看此文章前需要的前置知识"></a>看此文章前需要的前置知识</h2><ul>
-<li>前端基础知识（html、css、JavaScript）</li>
-<li>在本地搭建起了一个tomcat服务器，并运行了一个网页</li>
-<li>使用Ider或Eclipse等IDE集成了tomcat服务器</li>
-</ul>
-<p>本博客主要目的是，快速建立起Servlet的整体认知和感性认知，会忽略部分技术实现细节</p>
-<hr>
         
-          <a class="article-more-a" href="/2020/05/23/Servlet%E4%BD%BF%E7%94%A8%E6%A6%82%E8%BF%B0/#more">more >></a>
+          		<blockquote>
+<p>内容概述：<br>看此文章前需要的前置知识<br>Servlet概述<br>重要知识  </p>
+</blockquote>
+          
         
-      
 
       
     </div>
@@ -258,7 +375,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/23/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">搭建个人博客</a>
+      <a class="article-title" href="/2020/05/23/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">搭建个人博客(hexo)</a>
     </h1>
   
 
@@ -271,39 +388,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、环境配置（外部配置）"><a href="#一、环境配置（外部配置）" class="headerlink" title="一、环境配置（外部配置）"></a>一、环境配置（外部配置）</h2><ol>
-<li>安装node.js（和npm包管理器），直接官网下载安装即可</li>
-<li>设置环境变量，成功后可以在cmd通过node -v 和 npm -v 查看版本</li>
-<li>安装cnpm（npm的国内镜像版）<br> <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>安装git，可以去阿里云镜像下载，一路下一步即可</li>
-<li>安装hexo博客所需内容<br> <code>cnpm install -g hexo-cli</code></li>
-<li>在打算存储本地内容的路径下使用hexo init命令，如果没git这步会卡住</li>
-</ol>
-<h2 id="二、使用规则（内部配置）"><a href="#二、使用规则（内部配置）" class="headerlink" title="二、使用规则（内部配置）"></a>二、使用规则（内部配置）</h2><ol>
-<li>环境配置完成后，本地文件夹内就能看到对应的内容（我的是d:/hexo）<br>其中_config.yml这个配置文件很重要，需要在其中改deploy设置，格式为：</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">'git'</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">git@github.com:littletain/littletain.github.io.git</span></span><br><span class="line"><span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<p>注意不要多些和少写空格，路径要完整，如果需要改主题theme，也是在这个文件里改<br>2. 使用git bash或cmd安装插件：<br>    <code>npm install hexo-deployer-git --save</code><br>3. 确保github中的设置正确，比如路径格式为 用户名.github.io，即外网域名，且正确配置了SSH<br>4. 此后就可以在git中使用各种hexo的命令了</p>
-<h2 id="三、常用命令（可以在cmd中运行，建议在git-bash中运行）"><a href="#三、常用命令（可以在cmd中运行，建议在git-bash中运行）" class="headerlink" title="三、常用命令（可以在cmd中运行，建议在git bash中运行）"></a>三、常用命令（可以在cmd中运行，建议在git bash中运行）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy <span class="comment">#部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span></span><br><span class="line">hexo version  <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
-
-<p>缩写：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>组合命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>内部外部均配置好后，利用命令即可使用，new一个新的日志，然后按照markdown语法格式编辑即可<br>一些使用细节，和主题中的细节配置（如微信链接）还没仔细研究清楚</p>
-<h2 id="五、参考内容"><a href="#五、参考内容" class="headerlink" title="五、参考内容"></a>五、参考内容</h2><p><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa" target="_blank" rel="noopener">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa</a><br><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Yb411a7ty</a><br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/ （hexo官方文档）</a></p>
-
-      
+        
+          		<blockquote>
+<p>内容概述：<br>一、环境配置（外部配置）<br>二、使用规则（内部配置）<br>三、常用命令（可以在cmd中运行，建议在git bash中运行）<br>四、使用细节<br>五、参考内容  </p>
+</blockquote>
+          
+        
 
       
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具-环境//" class="article-tag-list-link color4">工具 && 环境</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -436,6 +563,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -486,7 +629,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://www.cnblogs.com/skysun/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>博客园</a>
             </li>
           
             <li class="search-li">
@@ -517,7 +660,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">感谢访问</div>
   	  	
     	</section>
     

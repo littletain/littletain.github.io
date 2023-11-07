@@ -157,6 +157,146 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-工作思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/11/06/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/">工作思考</a>
+    </h1>
+  
+
+        
+        <a href="/2023/11/06/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" class="archive-article-date">
+  	<time datetime="2023-11-06T02:18:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <ul>
+<li>积极且严肃的对待工作，这意味着需要一定的专注，以及一定的谨慎，就像对待一场考试一样。</li>
+</ul>
+
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/11/06/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-开发经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">开发经验</a>
+    </h1>
+  
+
+        
+        <a href="/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="archive-article-date">
+  	<time datetime="2023-10-30T03:25:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h2 id="技术设计理念"><a href="#技术设计理念" class="headerlink" title="技术设计理念"></a>技术设计理念</h2><ul>
+<li>前后端约定数据结构的时候，应当尽量将接口需要的所有信息体现在数据结构中，不要为了数据结构简化而做过多的私下约定；过多私下约定有两个明显的坏处，第一个是更换开发人员或者很久之后重新看数据结构时，不能清楚的反应业务内容，第二个是试图做切面逻辑的时候，数据结构本身不能包含全量信息，也就不能据此做通用处理，如果使用 if，就会让切面中包含业务逻辑，不利于代码整洁</li>
+<li>如果需要在某个场景存储结构化数据，在另一个场景解析这种结构化数据，这其实本质是一种基于数据库的通信，所以需要采用更通用的序列化和反序列化方式，比如使用 json 会优于使用 java 的 POJO<br>类，并且使用json在反序列化的时候不需要知道对应哪个类，不需要自己重新写序列化和反叙泪花，防止一些括号引号一类的符号干扰解析</li>
+</ul>
+<h2 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h2><ul>
+<li>SpringMVC 允许在 Controller 的请求路径中使用通配符匹配，比如 <code>/**</code> ，并且如果一个请求命中多个路径时，会使用更具体的匹配，比如 <code>/test/myPath</code> 同时命中 <code>/test/*</code> 和<br><code>/**</code> 时，会被前者捕获</li>
+</ul>
+
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-将枚举类Enum按照特定规则打印" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

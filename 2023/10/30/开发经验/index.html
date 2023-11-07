@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2023 | Tain&#39;s blog</title>
+  <title>开发经验 | Tain&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Something about code and life.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tain&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2023/index.html">
+  <meta name="description" content="技术设计理念 前后端约定数据结构的时候，应当尽量将接口需要的所有信息体现在数据结构中，不要为了数据结构简化而做过多的私下约定；过多私下约定有两个明显的坏处，第一个是更换开发人员或者很久之后重新看数据结构时，不能清楚的反应业务内容，第二个是试图做切面逻辑的时候，数据结构本身不能包含全量信息，也就不能据此做通用处理，如果使用 if，就会让切面中包含业务逻辑，不利于代码整洁 如果需要在某个场景存储结构化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发经验">
+<meta property="og:url" content="http://yoursite.com/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/index.html">
 <meta property="og:site_name" content="Tain&#39;s blog">
-<meta property="og:description" content="Something about code and life.">
+<meta property="og:description" content="技术设计理念 前后端约定数据结构的时候，应当尽量将接口需要的所有信息体现在数据结构中，不要为了数据结构简化而做过多的私下约定；过多私下约定有两个明显的坏处，第一个是更换开发人员或者很久之后重新看数据结构时，不能清楚的反应业务内容，第二个是试图做切面逻辑的时候，数据结构本身不能包含全量信息，也就不能据此做通用处理，如果使用 if，就会让切面中包含业务逻辑，不利于代码整洁 如果需要在某个场景存储结构化">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-30T03:25:43.000Z">
+<meta property="article:modified_time" content="2023-11-07T13:09:48.626Z">
 <meta property="article:author" content="Tain">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -155,199 +157,187 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-开发经验" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/11/06/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" class="archive-article-date">
-  	<time datetime="2023-11-06T02:18:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/11/06/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/">工作思考</a>
+    <h1 class="article-title" itemprop="name">
+      开发经验
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="archive-article-date">
+        
+        <a href="/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="archive-article-date">
   	<time datetime="2023-10-30T03:25:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">开发经验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
           
-          
+            <h2 id="技术设计理念"><a href="#技术设计理念" class="headerlink" title="技术设计理念"></a>技术设计理念</h2><ul>
+<li>前后端约定数据结构的时候，应当尽量将接口需要的所有信息体现在数据结构中，不要为了数据结构简化而做过多的私下约定；过多私下约定有两个明显的坏处，第一个是更换开发人员或者很久之后重新看数据结构时，不能清楚的反应业务内容，第二个是试图做切面逻辑的时候，数据结构本身不能包含全量信息，也就不能据此做通用处理，如果使用 if，就会让切面中包含业务逻辑，不利于代码整洁</li>
+<li>如果需要在某个场景存储结构化数据，在另一个场景解析这种结构化数据，这其实本质是一种基于数据库的通信，所以需要采用更通用的序列化和反序列化方式，比如使用 json 会优于使用 java 的 POJO<br>类，并且使用json在反序列化的时候不需要知道对应哪个类，不需要自己重新写序列化和反叙泪花，防止一些括号引号一类的符号干扰解析</li>
+</ul>
+<h2 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h2><ul>
+<li>SpringMVC 允许在 Controller 的请求路径中使用通配符匹配，比如 <code>/**</code> ，并且如果一个请求命中多个路径时，会使用更具体的匹配，比如 <code>/test/myPath</code> 同时命中 <code>/test/*</code> 和<br><code>/**</code> 时，会被前者捕获</li>
+</ul>
 
+          
+        
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2023/10/30/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/26/%E5%B0%86%E6%9E%9A%E4%B8%BE%E7%B1%BBEnum%E6%8C%89%E7%85%A7%E7%89%B9%E5%AE%9A%E8%A7%84%E5%88%99%E6%89%93%E5%8D%B0/" class="archive-article-date">
-  	<time datetime="2023-10-26T09:23:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-26</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/11/06/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          工作思考
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/10/26/%E5%B0%86%E6%9E%9A%E4%B8%BE%E7%B1%BBEnum%E6%8C%89%E7%85%A7%E7%89%B9%E5%AE%9A%E8%A7%84%E5%88%99%E6%89%93%E5%8D%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">将枚举类Enum按照特定规则打印</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/10/26/%E5%B0%86%E6%9E%9A%E4%B8%BE%E7%B1%BBEnum%E6%8C%89%E7%85%A7%E7%89%B9%E5%AE%9A%E8%A7%84%E5%88%99%E6%89%93%E5%8D%B0/">将枚举类Enum按照特定规则打印</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#技术设计理念"><span class="toc-number">1.</span> <span class="toc-text">技术设计理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术细节"><span class="toc-number">2.</span> <span class="toc-text">技术细节</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/24/clickhouse-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E5%90%8E%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E7%9B%B4%E6%8E%A5%E6%B6%88%E5%A4%B1%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" class="archive-article-date">
-  	<time datetime="2023-10-24T12:23:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-24</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/10/24/clickhouse-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E5%90%8E%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E7%9B%B4%E6%8E%A5%E6%B6%88%E5%A4%B1%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/">clickhouse 插入数据后历史数据直接消失问题排查</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">clickhouse</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/23/clickhouse-%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2023-10-23T07:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/10/23/clickhouse-%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">clickhouse 使用过程遇到的问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">clickhouse</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">dataworks</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -370,8 +360,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
